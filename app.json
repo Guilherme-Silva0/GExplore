@@ -22,10 +22,24 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
+      },
+      "package": "com.guilhermesilvadev.gexplore",
+      "config": {
+        "googleMaps": {
+          "apiKey": "_Your API Key_"
+        }
       }
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Para prosseguir, permita que o GExplore tenha acesso à sua localização."
+        }
+      ]
+    ]
   }
 }
