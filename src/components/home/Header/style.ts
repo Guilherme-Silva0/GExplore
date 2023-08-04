@@ -17,6 +17,7 @@ export const styles = StyleSheet.create({
     height: 45,
   },
   searchBar: {
+    fontFamily: 'Outfit_400Regular',
     borderWidth: 1,
     borderColor: colors.black,
     padding: 4,
