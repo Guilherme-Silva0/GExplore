@@ -7,7 +7,7 @@ import CategoryItem from '../CategoryItem'
 export default function CategoryList() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Selecione a categoria principal</Text>
+      <Text style={styles.title}>Filtre por uma categoria</Text>
       <FlatList
         style={styles.list}
         horizontal
