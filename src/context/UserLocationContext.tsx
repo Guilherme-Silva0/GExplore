@@ -22,15 +22,17 @@ export const UserLocationContext = createContext({} as UserLocationContextType)
 export function UserLocationProvider({ children }: { children: ReactNode }) {
   const [location, setLocation] = useState<null | LocationObject>(null)
 
+  const getLocation = async () => {
+    const { status } = await requestForegroundPermissionsAsync()
+    if (status !== 'granted') return
+
+    const location = await getCurrentPositionAsync({})
+
+    setLocation(location)
+  }
+
   useEffect(() => {
-    ;(async () => {
-      const { status } = await requestForegroundPermissionsAsync()
-      if (status !== 'granted') return
-
-      const location = await getCurrentPositionAsync({})
-
-      setLocation(location)
-    })()
+    getLocation()
   }, [])
 
   return (
