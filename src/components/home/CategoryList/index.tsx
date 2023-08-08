@@ -4,7 +4,11 @@ import { styles } from './styles'
 import { categoryList } from '../../../constant/categoryList'
 import CategoryItem from '../CategoryItem'
 
-export default function CategoryList() {
+export default function CategoryList({
+  setSelectedCategory,
+}: {
+  setSelectedCategory: (value: string) => void
+}) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Filtre por uma categoria</Text>
@@ -18,7 +22,7 @@ export default function CategoryList() {
             name={item.name}
             key={item.id}
             icon={item.icon}
-            onPress={() => console.log(item.value)}
+            onPress={() => setSelectedCategory(item.value)}
           />
         )}
       />
