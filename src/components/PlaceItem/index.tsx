@@ -14,9 +14,13 @@ export default function PlaceItem({
   return (
     <View style={index === 0 ? styles.bigContainer : styles.container}>
       <Image
-        source={{
-          uri: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=600&photoreference=${place.photos[0].photo_reference}&key=${process.env.EXPO_PUBLIC_GOOGLE_API_KEY}`,
-        }}
+        source={
+          place?.photos
+            ? {
+                uri: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=600&photoreference=${place.photos[0].photo_reference}&key=${process.env.EXPO_PUBLIC_GOOGLE_API_KEY}`,
+              }
+            : require('../../assets/placeholder-image.jpg')
+        }
         alt="image placeholder"
         style={index === 0 ? styles.bigImage : styles.image}
       />
