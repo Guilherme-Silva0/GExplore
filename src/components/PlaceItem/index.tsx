@@ -1,4 +1,4 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
 import { PlaceApiType } from '../../types/apiTypes'
 import { styles } from './styles'
@@ -7,12 +7,18 @@ import { colors } from '../../theme/colors'
 export default function PlaceItem({
   place,
   index,
+  onPress,
 }: {
   place: PlaceApiType
   index: number
+  onPress: (place: PlaceApiType) => void
 }) {
   return (
-    <View style={index === 0 ? styles.bigContainer : styles.container}>
+    <TouchableOpacity
+      onPress={() => onPress(place)}
+      activeOpacity={0.8}
+      style={index === 0 ? styles.bigContainer : styles.container}
+    >
       <Image
         source={
           place?.photos
@@ -36,6 +42,6 @@ export default function PlaceItem({
           <Text>{place.rating}</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }

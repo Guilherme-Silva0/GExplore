@@ -46,7 +46,7 @@ export default function HomeScreen() {
     <SafeAreaView>
       <ScrollView>
         <Header />
-        <GoogleMapView />
+        <GoogleMapView placeList={placeList} />
         <CategoryList
           setSelectedCategory={(value) => getNearbySearchPlaces(value)}
         />
