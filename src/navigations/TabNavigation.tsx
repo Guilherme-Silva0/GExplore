@@ -1,10 +1,10 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { MaterialIcons } from '@expo/vector-icons'
-import HomeScreen from '../screens/HomeScreen'
 import ProfileScreen from '../screens/ProfileScreen'
 import SearchScreen from '../screens/SearchSreen'
 import FavScreen from '../screens/FavScreen'
 import { Text, View } from 'react-native'
+import StackHomeNavigation from './StackHomeNavigation'
 
 const Tab = createBottomTabNavigator()
 
@@ -21,14 +21,14 @@ export default function TabNavigation() {
           left: 20,
           right: 20,
           borderRadius: 35,
-          // elevation: 5,
+          elevation: 3,
           height: 70,
         },
       }}
     >
       <Tab.Screen
         name="Home"
-        component={HomeScreen}
+        component={StackHomeNavigation}
         options={{
           tabBarIcon: ({ color, size, focused }) => (
             <View style={{ alignItems: 'center', justifyContent: 'center' }}>
