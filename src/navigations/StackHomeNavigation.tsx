@@ -1,16 +1,25 @@
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import HomeScreen from '../screens/HomeScreen'
-import PlaceDetails from '../components/placeDetails/PlaceDetails'
 import { Platform } from 'react-native'
 import {
   TransitionPresets,
   createStackNavigator,
 } from '@react-navigation/stack'
+import { PlaceApiType } from '../types/apiTypes'
+import { RouteProp } from '@react-navigation/native'
+import PlaceDetailsScreen from '../screens/PlaceDetailsScreen'
 
 type StackNavigationProps = {
   home_screen: undefined
-  place_details: undefined
+  place_details: {
+    place: PlaceApiType
+  }
 }
+
+export type StackPlaceDetailsParamsType = RouteProp<
+  StackNavigationProps,
+  'place_details'
+>
 
 export type StackNavigationTypes =
   NativeStackNavigationProp<StackNavigationProps>
@@ -30,7 +39,7 @@ export default function StackHomeNavigation() {
       <Stack.Screen name="home_screen" component={HomeScreen} />
       <Stack.Screen
         name="place_details"
-        component={PlaceDetails}
+        component={PlaceDetailsScreen}
         options={{ presentation: 'modal' }}
       />
     </Stack.Navigator>
