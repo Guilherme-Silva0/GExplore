@@ -9,8 +9,10 @@ import { PlaceApiType } from '../../../types/apiTypes'
 
 export default function GoogleMapView({
   placeList,
+  title,
 }: {
   placeList: PlaceApiType[]
+  title?: string
 }) {
   const [mapRegion, setMapRegion] = useState({
     latitude: 37.78825,
@@ -33,7 +35,7 @@ export default function GoogleMapView({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Principais lugares próximos</Text>
+      {title && <Text style={styles.title}>{title}</Text>}
       <View style={styles.mapWarpper}>
         <MapView
           style={styles.map}
