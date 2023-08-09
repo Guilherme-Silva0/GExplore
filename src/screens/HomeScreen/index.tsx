@@ -16,7 +16,7 @@ export default function HomeScreen() {
   const { location } = useContext(UserLocationContext)
 
   useEffect(() => {
-    if (!location?.coords && placeList.length !== 0) return
+    if (!location?.coords || placeList.length !== 0) return
     getNearbySearchPlaces()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location])
@@ -46,7 +46,10 @@ export default function HomeScreen() {
     <SafeAreaView>
       <ScrollView>
         <Header />
-        <GoogleMapView placeList={placeList} />
+        <GoogleMapView
+          placeList={placeList}
+          title="Principais locais proximos"
+        />
         <CategoryList
           setSelectedCategory={(value) => getNearbySearchPlaces(value)}
         />
