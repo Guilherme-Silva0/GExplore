@@ -5,8 +5,13 @@ import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 
 import { styles } from './styles'
 import { UserLocationContext } from '../../../context/UserLocationContext'
+import { PlaceApiType } from '../../../types/apiTypes'
 
-export default function GoogleMapView() {
+export default function GoogleMapView({
+  placeList,
+}: {
+  placeList: PlaceApiType[]
+}) {
   const [mapRegion, setMapRegion] = useState({
     latitude: 37.78825,
     longitude: -122.4324,
@@ -37,6 +42,20 @@ export default function GoogleMapView() {
           region={mapRegion}
         >
           <Marker title="Você" coordinate={mapRegion} />
+          {placeList.map(
+            (place, index) =>
+              index <= 5 && (
+                <Marker
+                  key={index}
+                  coordinate={{
+                    latitude: place.geometry.location.lat,
+                    longitude: place.geometry.location.lng,
+                  }}
+                  title={place.name}
+                  description={place.vicinity}
+                />
+              ),
+          )}
         </MapView>
       </View>
     </View>
