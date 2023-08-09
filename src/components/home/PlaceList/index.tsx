@@ -1,7 +1,7 @@
 import { View, Text, FlatList } from 'react-native'
 import { PlaceApiType } from '../../../types/apiTypes'
 import { styles } from './styles'
-import PlaceItem from '../../PlaceItem'
+import PlaceItem from '../PlaceItem'
 import { useNavigation } from '@react-navigation/native'
 import { StackNavigationTypes } from '../../../navigations/StackHomeNavigation'
 
@@ -13,8 +13,7 @@ export default function PlaceList({
   const navigator = useNavigation<StackNavigationTypes>()
 
   const handlePressPlace = (place: PlaceApiType) => {
-    console.log(place.name)
-    navigator.navigate('place_details')
+    navigator.navigate('place_details', { place })
   }
   return (
     <View style={styles.container}>
