@@ -1,8 +1,8 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
-import { PlaceApiType } from '../../types/apiTypes'
+import { PlaceApiType } from '../../../types/apiTypes'
 import { styles } from './styles'
-import { colors } from '../../theme/colors'
+import { colors } from '../../../theme/colors'
 
 export default function PlaceItem({
   place,
@@ -23,9 +23,9 @@ export default function PlaceItem({
         source={
           place?.photos
             ? {
-                uri: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=600&photoreference=${place.photos[0].photo_reference}&key=${process.env.EXPO_PUBLIC_GOOGLE_API_KEY}`,
+                uri: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=900&photoreference=${place.photos[0].photo_reference}&key=${process.env.EXPO_PUBLIC_GOOGLE_API_KEY}`,
               }
-            : require('../../assets/placeholder-image.jpg')
+            : require('../../../assets/placeholder-image.jpg')
         }
         alt="image placeholder"
         style={index === 0 ? styles.bigImage : styles.image}
