@@ -1,6 +1,6 @@
 import { useRoute } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
-import { Linking, Platform, View } from 'react-native'
+import { Linking, Platform, ScrollView, View } from 'react-native'
 import { StackPlaceDetailsParamsType } from '../../navigations/StackHomeNavigation'
 import PlaceDetailsItem from '../../components/placeDetails/PlaceDetailsItem'
 import ScrollDownIndicator from '../../components/placeDetails/ScrollDownIndicator'
@@ -21,14 +21,16 @@ export default function PlaceDetailsScreen() {
   }
 
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <ScrollDownIndicator />
-      <PlaceDetailsItem
-        place={place}
-        handlePressPlaceDirection={handlePressPlaceDirection}
-      />
-      <GoogleMapView placeList={[place]} title="Localização no mapa" />
-      <ButtonGetDirection onPress={handlePressPlaceDirection} />
+      <ScrollView>
+        <PlaceDetailsItem
+          place={place}
+          handlePressPlaceDirection={handlePressPlaceDirection}
+        />
+        <GoogleMapView placeList={[place]} title="Localização no mapa" />
+        <ButtonGetDirection onPress={handlePressPlaceDirection} />
+      </ScrollView>
       <StatusBar style="light" translucent />
     </View>
   )
