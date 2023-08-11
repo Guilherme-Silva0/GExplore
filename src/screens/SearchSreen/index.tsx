@@ -1,13 +1,12 @@
-import { Text } from 'react-native'
-import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import GoogleMapViewFull from '../../components/search/GoogleMapViewFull'
+import SearchBar from '../../components/search/SearchBar'
 
 export default function SearchScreen() {
   return (
-    <SafeAreaView
-      style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
-    >
-      <Text>SearchScreen</Text>
+    <SafeAreaView>
+      <SearchBar />
+      <GoogleMapViewFull placeList={[]} />
     </SafeAreaView>
   )
 }
