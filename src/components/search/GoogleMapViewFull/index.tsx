@@ -38,20 +38,17 @@ export default function GoogleMapViewFull({
         region={mapRegion}
       >
         <Marker title="Você" coordinate={mapRegion} />
-        {/* {placeList.map(
-            (place, index) =>
-              index <= 5 && (
-                <Marker
-                  key={index}
-                  coordinate={{
-                    latitude: place.geometry.location.lat,
-                    longitude: place.geometry.location.lng,
-                  }}
-                  title={place.name}
-                  description={place.vicinity}
-                />
-              ),
-          )} */}
+        {placeList.map((place, index) => (
+          <Marker
+            key={index}
+            coordinate={{
+              latitude: place.geometry.location.lat,
+              longitude: place.geometry.location.lng,
+            }}
+            title={place.name}
+            description={place.vicinity}
+          />
+        ))}
       </MapView>
     </View>
   )
