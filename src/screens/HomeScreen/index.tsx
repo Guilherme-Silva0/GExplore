@@ -34,7 +34,6 @@ export default function HomeScreen() {
       })
       .then((res) => {
         setPlaceList(res.data.results)
-        console.log('Req')
       })
       .catch((err) => {
         console.log(err)
