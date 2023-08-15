@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
   container: {
     position: 'absolute',
     zIndex: 20,
-    top: Dimensions.get('screen').height * 0.042,
+    top: Dimensions.get('screen').height * 0.03,
   },
   gradient: {
     padding: 20,
