@@ -31,5 +31,6 @@ export interface PlaceApiType {
   scope: string
   types: string[]
   user_ratings_total: number
-  vicinity: string
+  vicinity?: string
+  formatted_address?: string
 }
