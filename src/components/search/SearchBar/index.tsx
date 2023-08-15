@@ -27,7 +27,7 @@ export default function SearchBar() {
         <View style={styles.searchBarWrapper}>
           <Ionicons name="search" size={24} color={colors.darkGray} />
           <TextInput
-            placeholder="Search"
+            placeholder="Pesquisar"
             style={styles.searchInput}
             onChangeText={(value) => setSearchInput(value)}
             onSubmitEditing={() => console.log(searchInput)}
