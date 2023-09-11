@@ -6,9 +6,19 @@ import { PlaceApiType } from '../../../types/apiTypes'
 import { styles } from './styles'
 import { colors } from '../../../theme/colors'
 
-export default function BusinessItem({ place }: { place: PlaceApiType }) {
+export default function BusinessItem({
+  place,
+  onPress,
+}: {
+  place: PlaceApiType
+  onPress: (place: PlaceApiType) => void
+}) {
   return (
-    <TouchableOpacity activeOpacity={0.8} style={styles.container}>
+    <TouchableOpacity
+      activeOpacity={0.8}
+      onPress={() => onPress(place)}
+      style={styles.container}
+    >
       <Image
         source={
           place?.photos
