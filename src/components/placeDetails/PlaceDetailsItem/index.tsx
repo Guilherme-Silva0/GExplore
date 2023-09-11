@@ -30,7 +30,9 @@ export default function PlaceDetailsItem({
         alt="image placeholder"
         style={styles.image}
       />
-      <Text style={styles.placeVinicity}>{place.vicinity}</Text>
+      <Text style={styles.placeVinicity}>
+        {place.vicinity ? place.vicinity : place.formatted_address}
+      </Text>
       {place.opening_hours && (
         <Text style={styles.placeOpeningHours}>
           {place.opening_hours?.open_now ? 'Aberto' : 'Fechado'}
