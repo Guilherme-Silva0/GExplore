@@ -6,7 +6,11 @@ import { LinearGradient } from 'expo-linear-gradient'
 import { styles } from './styles'
 import { colors } from '../../../theme/colors'
 
-export default function SearchBar() {
+export default function SearchBar({
+  setSearchText,
+}: {
+  setSearchText: (text: string) => void
+}) {
   const [searchInput, setSearchInput] = useState('')
   return (
     <View style={styles.container}>
@@ -30,7 +34,7 @@ export default function SearchBar() {
             placeholder="Pesquisar"
             style={styles.searchInput}
             onChangeText={(value) => setSearchInput(value)}
-            onSubmitEditing={() => console.log(searchInput)}
+            onSubmitEditing={() => setSearchText(searchInput)}
           />
         </View>
       </LinearGradient>
