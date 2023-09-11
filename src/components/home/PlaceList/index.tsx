@@ -3,7 +3,7 @@ import { PlaceApiType } from '../../../types/apiTypes'
 import { styles } from './styles'
 import PlaceItem from '../PlaceItem'
 import { useNavigation } from '@react-navigation/native'
-import { StackNavigationTypes } from '../../../navigations/StackHomeNavigation'
+import { StackNavigationTypes } from '../../../navigations/types'
 
 export default function PlaceList({
   placeList,

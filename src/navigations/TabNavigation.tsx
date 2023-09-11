@@ -1,10 +1,10 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { MaterialIcons } from '@expo/vector-icons'
 import ProfileScreen from '../screens/ProfileScreen'
-import SearchScreen from '../screens/SearchSreen'
 import FavScreen from '../screens/FavScreen'
 import { Text, View } from 'react-native'
 import StackHomeNavigation from './StackHomeNavigation'
+import StackSearchNavigation from './StackSearchNavigation'
 
 const Tab = createBottomTabNavigator()
 
@@ -40,7 +40,7 @@ export default function TabNavigation() {
       />
       <Tab.Screen
         name="Search"
-        component={SearchScreen}
+        component={StackSearchNavigation}
         options={{
           tabBarIcon: ({ color, size, focused }) => (
             <View style={{ alignItems: 'center', justifyContent: 'center' }}>

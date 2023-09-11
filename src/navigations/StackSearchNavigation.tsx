@@ -1,4 +1,3 @@
-import HomeScreen from '../screens/HomeScreen'
 import { Platform } from 'react-native'
 import {
   TransitionPresets,
@@ -10,7 +9,7 @@ import { StackNavigationProps } from './types'
 
 const Stack = createStackNavigator<StackNavigationProps>()
 
-export default function StackHomeNavigation() {
+export default function StackSearchNavigation() {
   const isAndroid = Platform.OS === 'android'
   return (
     <Stack.Navigator
@@ -20,7 +19,6 @@ export default function StackHomeNavigation() {
         ...(isAndroid && TransitionPresets.ModalPresentationIOS),
       }}
     >
-      <Stack.Screen name="home_screen" component={HomeScreen} />
       <Stack.Screen name="search_screen" component={SearchScreen} />
       <Stack.Screen
         name="place_details"

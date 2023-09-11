@@ -1,7 +1,7 @@
 import { useRoute } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
 import { Linking, Platform, ScrollView, View } from 'react-native'
-import { StackPlaceDetailsParamsType } from '../../navigations/StackHomeNavigation'
+import { StackPlaceDetailsParamsType } from '../../navigations/types'
 import PlaceDetailsItem from '../../components/placeDetails/PlaceDetailsItem'
 import ScrollDownIndicator from '../../components/placeDetails/ScrollDownIndicator'
 import GoogleMapView from '../../components/home/GoogleMapView'
