@@ -12,13 +12,14 @@ export default function SearchScreen() {
   useEffect(() => {
     if (placeList.length !== 0) return
     getNearbySearchPlaces()
-  })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const getNearbySearchPlaces = (query = 'restaurant') => {
     mapsApi
       .get('textsearch/json', {
         params: {
-          query,
+          query: query === '' ? 'restaurant' : query,
         },
       })
       .then((res) => {
@@ -27,14 +28,11 @@ export default function SearchScreen() {
       .catch((err) => {
         console.log(err)
       })
-      .finally(() => {
-        console.log('req')
-      })
   }
 
   return (
     <SafeAreaView>
-      <SearchBar />
+      <SearchBar setSearchText={(text) => getNearbySearchPlaces(text)} />
       <GoogleMapViewFull placeList={placeList} />
       <BusinessList placeList={placeList} />
     </SafeAreaView>
